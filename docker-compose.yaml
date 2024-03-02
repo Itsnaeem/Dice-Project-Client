@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "5001:5001"
+    volumes:
+      - clientdata:/app/clientdata
+
+volumes:
+  clientdata:
