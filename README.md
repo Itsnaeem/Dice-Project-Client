@@ -1,4 +1,4 @@
-# Dice-Project-Part-1-Client
+![Screenshot 2024-03-03 at 11 16 59 AM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/cc7ceff2-52f2-4acb-a7f3-5be738bb0d7e)# Dice-Project-Part-1-Client
 
 # Client Application
 
@@ -82,9 +82,10 @@ This repository contains the client application for interacting with the server 
         main()
     ```
 
-5. **Ensure the server is running and accessible at the specified URL (`http://server:5000`).**
+5. **Ensure the server is running and accessible at the specified URL (`http://<IP>:5000`).**
 
 6. **Run the client application by building the Docker container and starting it with Docker Compose.**
+![Screenshot 2024-03-03 at 11 16 59 AM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/4b1f8fc7-d05d-40aa-a6e5-4fc25e6b96a1)
 
 ---
 
@@ -131,6 +132,11 @@ provider "aws" {
   region = "us-east-2"
 }
 ```
+![Screenshot 2024-03-02 at 1 05 17 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/e91d136c-d365-4ac4-a6fc-8dcd6d610f9f)
+![Screenshot 2024-03-02 at 1 05 36 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/9fdf72db-ef2a-4d6a-b5ca-b0f2008857d7)
+
+
+
 
 ## Part 3: Setting up Monitoring Stack
 
@@ -189,10 +195,20 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 ```
+In monitoring directory run the command sudo docker-compose -f docker-compose.monitoring.yml up -d
+
+then the containers of prometheus, grafana & node-exporter is running.
+
+![Screenshot 2024-03-02 at 10 07 09 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/3842754e-ebae-4ac5-9e62-6e69de754155)
+
+
+![Screenshot 2024-03-02 at 10 27 03 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/c6a28792-c8ea-46a2-a303-628d840c3f36)
 
 ### Dashboard Configuration
 
 Create dashboards in Grafana to visualize host system metrics and Docker container metrics, utilizing Prometheus as the data source.
+
+I import the dashboard for docker there is 193 ID & for machine logs 1860 ID.
 
 ---
 
@@ -262,6 +278,7 @@ jobs:
 ## Step 2: Configure GitHub Secrets
 
 In both repositories, go to Settings > Secrets and add the following secrets:
+I add the secrets there as.
 
 - `DOCKER_USERNAME`: Your Docker Hub username.
 - `DOCKER_PASSWORD`: Your Docker Hub password or access token.
@@ -274,5 +291,9 @@ In both repositories, go to Settings > Secrets and add the following secrets:
 ## Step 3: Deploy and Monitor
 
 With the GitHub Actions workflows configured, any push to the `main` branch will trigger the CI/CD pipeline, building your Docker images, deploying them to your VM, and sending a deployment notification via Gmail.
+
+After this I receive the notification on my email if the job is running, deployed & failed.
+
+
 
 ###### comment
