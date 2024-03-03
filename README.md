@@ -274,3 +274,4 @@ In both repositories, go to Settings > Secrets and add the following secrets:
 
 With the GitHub Actions workflows configured, any push to the `main` branch will trigger the CI/CD pipeline, building your Docker images, deploying them to your VM, and sending a deployment notification via Gmail.
 
+###### comment
