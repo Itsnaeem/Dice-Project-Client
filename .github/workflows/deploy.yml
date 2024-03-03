@@ -34,6 +34,7 @@ jobs:
           git pull
           IMAGE_TAG=${{ github.sha }} sed -i 's|image: itsnaeemraza/server:.*|image: itsnaeemraza/server:'"$IMAGE_TAG"'|' docker-compose.yml
           docker-compose up -d
+
     - name: Send notification to Gmail
       uses: dawidd6/action-send-mail@v2
       with:
@@ -44,5 +45,5 @@ jobs:
         subject: Deployment Status
         body: Deployment of ${{ github.repository }} was successful. Commit SHA: ${{ github.sha }}
         to: itsnaeemraza@gmail.com
-        from: "GitHub Actions <id.naeemraza@gmail.com>"
+        from: GitHub Actions <id.naeemraza@gmail.com>
         secure: true
