@@ -4,7 +4,7 @@ services:
   prometheus:
     image: prom/prometheus:v2.26.0
     volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     command:
@@ -13,8 +13,13 @@ services:
   grafana:
     image: grafana/grafana:7.5.4
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=secret  # Change this to a secure password
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Change this to a secure password
     ports:
       - "3020:3000"
     depends_on:
       - prometheus
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"

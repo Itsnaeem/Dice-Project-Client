@@ -1,7 +1,7 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 15s  # By default, scrape targets every 15 seconds.
 
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: 'prometheus'  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['localhost:9090']  # Here, Prometheus itself is the target.
