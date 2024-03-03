@@ -1,4 +1,4 @@
-![Screenshot 2024-03-03 at 11 16 59 AM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/cc7ceff2-52f2-4acb-a7f3-5be738bb0d7e)# Dice-Project-Part-1-Client
+# Dice-Project-Part-1-Client
 
 # Client Application
 
@@ -85,6 +85,10 @@ This repository contains the client application for interacting with the server 
 5. **Ensure the server is running and accessible at the specified URL (`http://<IP>:5000`).**
 
 6. **Run the client application by building the Docker container and starting it with Docker Compose.**
+
+   
+![Screenshot 2024-03-03 at 11 16 59 AM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/cc7ceff2-52f2-4acb-a7f3-5be738bb0d7e)
+
 ![Screenshot 2024-03-03 at 11 16 59 AM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/4b1f8fc7-d05d-40aa-a6e5-4fc25e6b96a1)
 
 ---
