@@ -224,8 +224,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build and push Docker image
       run: |
-        docker build -t yourdockerhubusername/server:${{ github.sha }} ./server
-        docker push yourdockerhubusername/server:${{ github.sha }}
+        docker build -t itsnaeemraza/server:${{ github.sha }} ./server
+        docker push itsnaeemraza/server:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -238,11 +238,12 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          cd /path/to/your/project
+          cd /home/ubuntu
           git pull
-          sed -i 's/image: yourdockerhubusername\/server:.*/image: yourdockerhubusername\/server:${{ github.sha }}/' docker-compose.yml
-          docker-compose up -d
-    - name: Send notification to Gmail
+          IMAGE_TAG=${{ github.sha }} sed -i 's|image: itsnaeemraza/server:.*|image: itsnaeemraza/server:'"$IMAGE_TAG"'|' docker-compose.yml
+          docker-compose up -d 
+
+   - name: Send notification to Gmail
       uses: dawidd6/action-send-mail@v2
       with:
         server_address: smtp.gmail.com
@@ -251,8 +252,8 @@ jobs:
         password: ${{ secrets.EMAIL_PASSWORD }}
         subject: Deployment Status
         body: Deployment of ${{ github.repository }} was successful. Commit SHA: ${{ github.sha }}
-        to: your-email@example.com
-        from: GitHub Actions <your-sender-email@example.com>
+        to: itsnaeemraza@gmail.com
+        from: "GitHub Actions <id.naeemraza@gmail.com>"
         secure: true
 ```
 
