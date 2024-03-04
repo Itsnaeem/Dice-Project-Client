@@ -94,8 +94,8 @@ This repository contains the client application for interacting with the server 
 
 ### 2a. AWS EC2 Instances Setup
 
-Create two AWS EC2 instances:
-- **Server Container Host**: To host the server application.
+Create AWS EC2 instance:
+
 - **Client Container Host**: To host the client application.
 
 Instance type for both: `t2.micro` (covered under the AWS free tier).
@@ -107,6 +107,11 @@ Configure the VPC and subnets to allow communication between the two EC2 instanc
 ### 2c. Infrastructure Automation with Terraform
 
 Automate the creation of AWS resources using Terraform. Place Terraform scripts in the "terraform" directory within both the client and server repositories.
+
+For this task, we need to install AWS CLI & Terraform in our host machine.
+then configure the aws.
+
+'''aws configure'''
 
 #### Terraform Configuration Files
 
@@ -133,6 +138,14 @@ provider "aws" {
   region = "us-east-2"
 }
 ```
+
+then in terraform directory
+use these commands
+
+1. '''terraform init'''
+2. '''terraform plan'''
+3. '''terraform apply'''
+
 ![Screenshot 2024-03-02 at 1 05 17 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/e91d136c-d365-4ac4-a6fc-8dcd6d610f9f)
 ![Screenshot 2024-03-02 at 1 05 36 PM](https://github.com/Itsnaeem/Dice-Project-Client/assets/46102040/9fdf72db-ef2a-4d6a-b5ca-b0f2008857d7)
 
